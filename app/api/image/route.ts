@@ -71,10 +71,10 @@ export async function POST(req: Request) {
     }
 
     const response = await openai.images.generate({
-      prompt: prompt,
-      n: parseInt(amount, 10),
-      size: "1024x1024",
       model: "dall-e-3",
+  prompt: prompt,
+  n: 1,
+  size: "1024x1024",
     });
 
     if (!isPro) {
