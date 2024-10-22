@@ -23,12 +23,11 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <CrispProvider />
-        <body className={inter.className}>
+        <body className={`${inter.className} bg-[#ede9e9]`}>
           <ModalProvider />
           <ToasterProvider />
           {children}
-          
-          </body>
+        </body>
       </html>
     </ClerkProvider>
   );

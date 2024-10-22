@@ -11,6 +11,7 @@ import {
   VideoIcon,
   PiIcon,
   Radical,
+  X,
 } from "lucide-react";
 import { Montserrat } from "next/font/google";
 import Image from "next/image";
@@ -53,10 +54,16 @@ const routes = [
     color: "text-emerald-500",
   },
   {
-    label: "Code Generation/Assistant",
+    label: "Code Generation",
     icon: Code,
     href: "/code",
     color: "text-green-700",
+  },
+  {
+    label: "Code Fixer",
+    icon: X,
+    href: "/error",
+    color: "text-red-700",
   },
   {
     label: "Math Helper",
@@ -108,12 +115,14 @@ const Sidebar = ({
               </div>
             </Link>
           ))}
-        </div><FreeCounter
+        </div >
+        <div className="mt-1.5">
+           <FreeCounter
         isPro={isPro}
       apiLimitCount={apiLimitCount}
       />
+        </div>
       </div>
-      
     </div>
   );
 };

@@ -4,7 +4,7 @@ import * as z from "zod";
 import { formSchema } from "./constants";
 import axios from "axios";
 import { Heading } from "@/components/heading";
-import { Code, Divide, MessagesSquare } from "lucide-react";
+import { Code, Divide, MessagesSquare, X } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
@@ -27,7 +27,7 @@ type ChatCompletionRequestMessage = {
   content: string;
 };
 
-const CodePage = () => {
+const CodeErrorPage = () => {
     const promodel = useProModal();
     const router = useRouter();
     const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([]);
@@ -49,7 +49,7 @@ const CodePage = () => {
             };
             const newMessages = [...messages, userMessage];
 
-            const response = await axios.post("/api/code", {
+            const response = await axios.post("/api/error", {
                 messages: newMessages,
             });
 
@@ -70,9 +70,9 @@ const CodePage = () => {
     return (
         <div>
             <Heading
-                title="Code Generation"
+                title="Code Fixer"
                 description="Generate code using descriptive text."
-                icon={Code}
+                icon={X}
                 iconColor="text-green-700"
                 bgColor="bg-green-700/10"
             />
@@ -146,4 +146,4 @@ const CodePage = () => {
     );
 };
 
-export default CodePage;
+export default CodeErrorPage;
